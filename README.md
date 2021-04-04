@@ -1,6 +1,6 @@
 #Assignment Description :
 
-#Problem statement:
+#Problem statement :
 Add Category (Id, name, description) : Here admin will add category like electronic, furniture etc.
 Update Category : Here we can update the existing category.
 Get All categories : I have to create an API for accessing the list of all categories.
