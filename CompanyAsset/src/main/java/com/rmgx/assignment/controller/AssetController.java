@@ -19,25 +19,25 @@ public class AssetController {
 	private AssetServiceImpl service;
 	
 	
-	@PostMapping("/addAsset")
+	@PostMapping("/addAsset")  									// handling request for adding an asset
 	public Asset addAsset(@RequestBody AssetDto assetDto){
 		
-		Asset addAsset = service.addAsset(assetDto);
+		Asset addAsset = service.addAsset(assetDto);			// a service method called for adding asset to the database
 		return addAsset;
 	}
 	
-	@PostMapping("/findAllAsset")
+	@PostMapping("/findAllAsset")								 // handles request for fetching all assets list
 	public ResponseEntity<List<Asset>> findAllAsset(){
 		
-		List<Asset> allAsset = service.getAllAsset();
-		
+		List<Asset> allAsset = service.getAllAsset();			// a service method called for fetching all assets stored in database.
+																//It returns a list of assets			
 		return ResponseEntity.ok(allAsset);
 	}
 	
-	@PostMapping("/findAssetByName")
+	@PostMapping("/findAssetByName")						// handle request for fetching asset by name
 	public ResponseEntity<List<Asset>> findAssetByName(@RequestParam("userName") String userName){
 		
-		List<Asset> assets = service.searchAssetByName(userName);
+		List<Asset> assets = service.searchAssetByName(userName); // a service method called for searching the assets matches to the name coming in url
 		return ResponseEntity.ok(assets);
 	}
 	
