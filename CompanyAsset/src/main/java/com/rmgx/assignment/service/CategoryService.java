@@ -7,9 +7,9 @@ import com.rmgx.assignment.entity.Category;
 
 public interface CategoryService {
 	
-	public Category addCategory(CategoryDto categoryDto);
+	public Category addCategory(CategoryDto categoryDto);	 // method for adding a category
 	
-	public Category updateCategory(CategoryDto categoryDto, long cat_Id);
+	public Category updateCategory(CategoryDto categoryDto, long cat_Id);		// method for updating a category
 	
-	public List<Category> getAllCategory();
+	public List<Category> getAllCategory();					// method for fetching all categories
 }
