@@ -17,13 +17,13 @@ public class CategoryServiceImpl implements CategoryService {
 	
 	
 	private static final org.slf4j.Logger log = 
-		    org.slf4j.LoggerFactory.getLogger(CategoryServiceImpl.class);
+		    org.slf4j.LoggerFactory.getLogger(CategoryServiceImpl.class);   // declared an instance of Slf4j logger to create logs
 	
 	@Autowired
 	private CategoryRepo category_repo;;
 	
 	@Override
-	public Category addCategory(CategoryDto categoryDto) {
+	public Category addCategory(CategoryDto categoryDto) {		 //implementation of method for adding Category to the database
 		Category category=null;
 		category = category_repo.findByName(categoryDto.getCategory_name());
 		if(category==null) {
@@ -42,7 +42,7 @@ public class CategoryServiceImpl implements CategoryService {
 	}
 
 	@Override
-	public Category updateCategory(CategoryDto categoryDto, long cat_Id) {
+	public Category updateCategory(CategoryDto categoryDto, long cat_Id) { // implementation of method for updating category
 		Category category = category_repo.findById(cat_Id).get();
 		category.setName(categoryDto.getCategory_name());
 		category.setDescription(categoryDto.getDescription());
@@ -56,7 +56,7 @@ public class CategoryServiceImpl implements CategoryService {
 	}
 
 	@Override
-	public List<Category> getAllCategory() {
+	public List<Category> getAllCategory() {					// implementation of method for getting all the categories
 		List<Category> allCategory = category_repo.findAll();
 		System.out.println(allCategory.toString());
 		return allCategory;
