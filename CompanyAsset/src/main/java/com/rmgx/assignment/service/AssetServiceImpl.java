@@ -30,12 +30,12 @@ public class AssetServiceImpl implements AssetService {
 	private CategoryRepo cat_repo;
 	
 	@Override
-	public List<Asset> getAllAsset() {		
+	public List<Asset> getAllAsset() {	// implementation of method for returning all the assets list
 		return repository.findAll();
 	}
 
 	@Override
-	public Asset addAsset(AssetDto assetDto) {
+	public Asset addAsset(AssetDto assetDto) {	// implementation of method for adding asset to database
 		Asset newAsset = new Asset();
 		newAsset.setName(assetDto.getName());
 		newAsset.setAssignment_status("Available");
@@ -56,12 +56,12 @@ public class AssetServiceImpl implements AssetService {
 	}
 
 	@Override
-	public List<Asset> searchAssetByName(String name) {
+	public List<Asset> searchAssetByName(String name) {	// implementation of method for searching asset by name
 		return repository.findByName(name);
 	}
 
 	@Override
-	public String deleteAsset(long id) {
+	public String deleteAsset(long id) {			// implementation of method for deleting asset
 		Asset asset = repository.findById(id).get();
 		if(asset.getAssignment_status().equals("Assigned")) {
 			log.info("employee is assing to an asset, so can't delete");
